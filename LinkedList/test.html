@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LinkedList</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+    let a = new LinkedList();
+    var a1 = ['a1',"a3"],
+        a2 = 'a2',
+        a3 = {"a3":"a3"};
+    a.insert(a1);
+    a.insert(a2);
+    a.insert(a3,a1);
+    a.display();
+    a.delete(a3);
+    console.log('')
+    a.display();
+    </script>
+</body>
+</html>
