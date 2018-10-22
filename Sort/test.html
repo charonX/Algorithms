@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        function createArr(len){
+            let arr = []
+            for (let i = 0; i < len; i++) {
+                arr.push(Math.ceil(Math.random()*len));
+            }
+            return arr;
+        }
+        // 随机生成数组
+        let arr = createArr(1000);
+
+        var time1 = new Date().getTime();
+
+        // 冒泡排序
+        // bubble_sort(arr);
+        // bubble_sort(arr,function(a,b){
+        //     return a<b
+        // });
+        
+        // 插入排序
+        // insert_sort(arr);
+        // insert_sort(arr,function(a,b){
+        //     return a<b
+        // });
+
+        // 选择排序
+        // selection_sort(arr);
+        selection_sort(arr,function(a,b){
+            return a<b
+        });
+
+        var time2 = new Date().getTime();
+
+        console.log(arr, `时间：${time2-time1}ms`);
+    </script>
+</body>
+</html>

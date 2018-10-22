@@ -9,17 +9,83 @@
 </head>
 <body>
     <script>
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+    // 单链表反转
+    
+    // 合并链表
+
+    var mergeTwoLists = function(l1, l2) {
+        if(!l1) return l2;
+        if(!l2) return l1;
+        let curNode1 = l1.element <= l2.element ? l1 :l2,
+            curNode2 = l1.element > l2.element ? l1 :l2,
+            headNode = curNode1,
+            curNode = curNode1;
+        
+        curNode1 = curNode1.next;
+        while(true){
+            if(!curNode1){
+                curNode.next = curNode2
+                break
+            }
+            if(!curNode2){
+                curNode.next = curNode1
+                break
+
+            }
+            console.log(curNode1.element,curNode2.element)
+            if(curNode1.element < curNode2.element){
+                curNode.next = curNode1;
+                curNode = curNode.next;
+                if(curNode1.next == null){
+                    curNode.next = curNode2;
+                    break;
+                }
+                curNode1 = curNode1.next;
+            }else if(curNode1.element >= curNode2.element){
+                curNode.next = curNode2;
+                curNode = curNode.next;
+                if(curNode2.next == null){
+                    curNode.next = curNode1;
+                    break;
+                }
+                curNode2 = curNode2.next;
+            }
+            console.log(curNode1,curNode2)
+            if(curNode1 == null && curNode2 == null){
+                break
+            }
+        }
+        
+        return headNode;
+    };
+
+
     let a = new LinkedList();
-    var a1 = ['a1',"a3"],
-        a2 = 'a2',
-        a3 = {"a3":"a3"};
-    a.insert(a1);
-    a.insert(a2);
-    a.insert(a3,a1);
-    a.display();
-    a.delete(a3);
-    console.log('')
-    a.display();
+    let b = new LinkedList();
+    a.insert(4);
+    // a.insert(2);
+    // a.insert(4);
+    // a.display();
+    // b.insert(1);
+    b.insert(3);
+    // b.insert(4);
+    // b.display();
+    console.log("=======================")
+    let c = mergeTwoLists(a.head,b.head)
+    console.log("=======================")
+    display(c);
+
+    function display(node){
+        var currNode = node;
+        while (currNode != null){
+            console.log(currNode.element)
+            currNode = currNode.next;
+        }
+    }
     </script>
 </body>
 </html>

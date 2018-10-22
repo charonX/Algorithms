@@ -12,7 +12,7 @@ function DNode(element){
 // 带头链表
 function LinkedList(){
     let that = this;
-    that.head = new Node(null);
+    that.head = null;
     that.find = find;
     that.insert = insert;
     that.delete = deleteElement;
@@ -47,6 +47,10 @@ function LinkedList(){
     function insert(NewElement, position){
         let element = new Node(NewElement);
         let curNode;
+        if(!that.head){
+            that.head = element;
+            return;
+        }
         if(!that.head.next){
             curNode = that.head
         }else if(position){
@@ -66,8 +70,8 @@ function LinkedList(){
     }
     function display(){
         var currNode = that.head;
-        while (!(currNode.next == null)){
-            console.log(currNode.next.element)
+        while (currNode != null){
+            console.log(currNode.element)
             currNode = currNode.next;
         }
     }
