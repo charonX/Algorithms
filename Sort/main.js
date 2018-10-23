@@ -97,3 +97,73 @@ function selection_sort(array,func){
         array[targetIndex] = target;
     }
 }
+
+// 归并排序
+function merge_sort(array){
+    merge_sort_c(array)
+}
+
+function merge_sort_c(array){
+    function merge(array,array1,array2){
+        let result = [];
+        let index1 = 0,index2 = 0;
+        array1.push(Number.MAX_VALUE);
+        array2.push(Number.MAX_VALUE);
+        while(index1 != array1.length - 1 || index2 != array2.length - 1){
+            if(array1[index1]>array2[index2]){
+                result.push(array2[index2])
+                index2 += 1;
+            }else{
+                result.push(array1[index1])
+                index1 += 1;
+            }
+        }
+
+        for (let i = 0; i < array.length; i++) {
+            const element = array[i];
+            array[i] = result[i]
+        }
+    }
+
+    let length = array.length;
+    let middle = Math.floor(length / 2);
+    if(length==1) return array;
+
+    let arr1 = merge_sort_c(array.slice(0,middle));
+    let arr2 = merge_sort_c(array.slice(middle,length));
+
+    merge(array,arr1, arr2)
+    return array;
+}
+
+
+function quick_sort(array){
+    console.log(array)
+    quick_sort_c(array,0,array.length-1)
+    console.log(array)
+}
+
+function quick_sort_c(array,start,end){
+    function partition(array){
+        console.log("start",array.slice(start,end))
+        let pivot = array[end],
+            curIndex = start;
+        for (let i = start; i < end; i++) {
+            const item = array[i];
+            console.log(pivot,item)
+            if(item <= pivot){
+                array[i] = array[curIndex];
+                array[curIndex] = item;
+                curIndex += 1;
+            }
+        }
+        console.log("end",array)
+        return curIndex;
+    }
+
+    let pivot = partition(array);
+    console.log(array, pivot)
+    if(start >= pivot) return;
+    quick_sort_c(array,start,pivot)
+    quick_sort_c(array,pivot,end)
+}
