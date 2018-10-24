@@ -138,32 +138,26 @@ function merge_sort_c(array){
 
 
 function quick_sort(array){
-    console.log(array)
     quick_sort_c(array,0,array.length-1)
-    console.log(array)
 }
 
 function quick_sort_c(array,start,end){
     function partition(array){
-        console.log("start",array.slice(start,end))
         let pivot = array[end],
             curIndex = start;
-        for (let i = start; i < end; i++) {
+        for (let i = start; i <= end; i++) {
             const item = array[i];
-            console.log(pivot,item)
             if(item <= pivot){
                 array[i] = array[curIndex];
                 array[curIndex] = item;
                 curIndex += 1;
             }
         }
-        console.log("end",array)
-        return curIndex;
+        return curIndex-1;
     }
 
     let pivot = partition(array);
-    console.log(array, pivot)
-    if(start >= pivot) return;
-    quick_sort_c(array,start,pivot)
-    quick_sort_c(array,pivot,end)
+    if(start >= end) return;
+    quick_sort_c(array,start,pivot-1)
+    quick_sort_c(array,pivot+1,end)
 }

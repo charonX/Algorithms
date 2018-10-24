@@ -20,32 +20,39 @@
 
         var time1 = new Date().getTime();
         // 随机生成数组
-        for (let i = 0; i < 1; i++) {
-            let arr = createArr(10);
-
-            // 冒泡排序
+        for (let i = 0; i < 1000; i++) {
+            let arr = createArr(1000);
+            // console.log(arr)
+            // 冒泡排序 1000 * 1000 3600ms左右
             // bubble_sort(arr);
             // bubble_sort(arr,function(a,b){
             //     return a<b
             // });
             
-            // 插入排序
+            // 插入排序 1000 * 1000 3600ms左右
             // insert_sort(arr);
             // insert_sort(arr,function(a,b){
             //     return a<b
             // });
 
-            // 选择排序
+            // 选择排序 1000 * 1000 3600ms左右
             // selection_sort(arr);
             // selection_sort(arr,function(a,b){
             //     return a<b
             // });
                 
-            // 归并排序
+            // 归并排序 1000 * 1000 600ms左右
             // merge_sort(arr);
 
-            // 快速排序
-            quick_sort(arr);
+            // 快速排序 1000 * 1000 130ms左右
+            // quick_sort(arr);
+
+            // 原生排序 1000 * 1000 230ms左右
+            // arr.sort(function(a, b) {
+            //     return a - b
+            // })
+
+            // console.log(arr)
         }
         var time2 = new Date().getTime();
 
