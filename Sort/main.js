@@ -136,7 +136,7 @@ function merge_sort_c(array){
     return array;
 }
 
-
+// 快速排序
 function quick_sort(array){
     quick_sort_c(array,0,array.length-1)
 }
@@ -154,6 +154,13 @@ function quick_sort_c(array,start,end){
             }
         }
         return curIndex-1;
+    }
+
+    function getPivot(array){
+        let a = array[0],
+            b = array[array.length - 1],
+            c = array[Math.floor(array.length / 2)];
+        return a>=b?(b>=c?b:(a>=c?c:a)):(a>=c?a:(b>=c?c:b))
     }
 
     let pivot = partition(array);
